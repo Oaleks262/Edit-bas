@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Excel</title>
+  <title>Завантажити Excel</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Підключаємо наш стиль -->
+  <script defer src="script.js"></script> <!-- Підключаємо JS файл -->
 </head>
 <body>
-  <a href="https://docs.google.com/spreadsheets/d/1BD0YkSOpy-IP3S_KjzJHjWwHWgqS-XXqv62E-XhfsDw/edit?gid=0#gid=0">Шаблон</a>
-  <h1>Upload an Excel File</h1>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" accept=".xlsx" required />
-    <button type="submit">Upload</button>
-  </form>
+  <div class="container">
+    <!-- Посилання на шаблон -->
+    <a href="https://docs.google.com/spreadsheets/d/1BD0YkSOpy-IP3S_KjzJHjWwHWgqS-XXqv62E-XhfsDw/edit?gid=0#gid=0" class="template-link" target="_blank">Шаблон</a>
 
-  <h1>Update Database</h1>
-  <form action="/update-database" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" accept=".xlsx" required />
-    <button type="submit">Update Database</button>
-  </form>
+    <h1>Завантажити Excel файл</h1>
+    
+    <!-- Форма для завантаження файлу -->
+    <form action="/upload" method="post" enctype="multipart/form-data" class="upload-form" id="uploadForm">
+      <input type="file" name="file" accept=".xlsx" required id="uploadFile" />
+      <button type="submit">Завантажити</button>
+    </form>
+
+    <h1>Оновити Базу Даних</h1>
+    
+    <!-- Форма для оновлення бази даних -->
+    <form action="/update-database" method="post" enctype="multipart/form-data" class="update-form" id="updateForm">
+      <input type="file" name="file" accept=".xlsx" required id="updateFile" />
+      <button type="submit">Оновити Базу Даних</button>
+    </form>
+
+    <!-- Повідомлення про статус -->
+    <div id="statusMessage" class="status-message"></div>
+  </div>
 </body>
 </html>
